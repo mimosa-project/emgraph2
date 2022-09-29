@@ -26,7 +26,7 @@ for index in range(len(class_objects['mml_classification'])):
         elementData = graph_objects['eleObjs'][index]['data']
         classData = class_objects['mml_classification'][index]
         directoryData = classData['directory']
-        if elementData['id'].lower() == classData['mml-name'] and directoryData:
+        if elementData['id'].lower() == classData['mml-name']:
             elementData['parent'] = directoryData
 
             parent = directoryData

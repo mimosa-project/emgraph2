@@ -4,7 +4,7 @@ import re
 from collections import defaultdict
 
 #描画する(クラスタリングを行った)articleを記入したファイル名
-articleList = "mml-lar-top334.txt"
+articleList = "mml-lar-top.txt"
 #mmlフォルダを格納したフォルダ名
 mmlDirectory = "2020-06-18"
 

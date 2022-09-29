@@ -345,17 +345,17 @@ $(function(){
     }
     
     
-    // 強調表示したい祖先、子孫の世代数を取得
+    // 強調表示したい祖先、子孫の世代数の変更を反映
     $("#ancestor_generations").on("change", function(){
-        ancestor_generations = $("#ancestor_generations").val();
-        generation();
+        rehighlightGeneration();
     });
     $("#descendant_generations").on("change", function(){
-        descendant_generations = $("#descendant_generations").val();
-        generation();
+        rehighlightGeneration();
     });
 
-    function generation(){
+    function rehighlightGeneration(){
+        ancestor_generations = $("#ancestor_generations").val();
+        descendant_generations = $("#descendant_generations").val();
         if(cy.nodes(".selected").data()){
             let selected_node = cy.nodes().filter(function(ele){
                 return ele.data("name") == cy.nodes(".selected").data("name");
@@ -368,11 +368,11 @@ $(function(){
     cy.on("clickElement", "node", function(event){
         if(!cy.$(this).hasClass("selected")){// クリックしたノードと，エッジで繋がるノードの色を変更
             if(!id2relatedElements.get(this.id()).removed) recursivelyRemove(this.id(), this, id2relatedElements)
-            selection(event);
+            rehighlightSelectedNode(event);
         }
     });
 
-    function selection(event){
+    function rehighlightSelectedNode(event){
         // 全ノードをクラスから除外
         reset_elements_style(cy);
         // クリックしたノードをselectedクラスに入れる
@@ -426,7 +426,7 @@ $(function(){
             }
         }
         else if(!cy.$(e.target.id()).hasClass("selected")){// クリックしたノードの親と子、自身を色変更
-            selection(e);
+            rehighlightSelectedNode(e);
         }
         previousTapStamp= currentTapStamp;
         
@@ -651,7 +651,7 @@ function recursivelyRemove(id,nodes, id2relatedElements){
             id2relatedElements.get(node.data('id')).removed = true;
         });
         Array.prototype.push.apply(removingNodesList, nodes.children());
-        // list.push()の場合，削除対象のノード群の配列が正しく生成できなかったためArrayを使用
+        // ノードの子(children())を引数展開するため、Arrayを使用した
         nodes = nodes.children();
         if( nodes.empty() ){ break; }
     }
