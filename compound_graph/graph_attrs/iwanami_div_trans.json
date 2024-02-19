@@ -1,0 +1,7 @@
+{
+    "I": "Math_Logic", "II": "Sets_and_Topology", "III": "Algebra", "IV": "Number_Theory", "V": "Groups_and_Rep",
+    "VI": "Alg_Geometry", "VII": "Geometry", "VIII": "Diff_Geometry", "IX": "Topology", "X": "Analysis",
+    "XI": "Complex_An", "XII": "Func_An", "XIII": "Diff_Eqns", "XIV": "Spec_Func", "XV": "Num_An",
+    "XVI": "Appl_An", "XVII": "Prob_Theory", "XVIII": "Stats", "XIX": "Disc_Math", 
+    "XX": "Info_Math", "XXI": "Opt_Theory", "XXII": "Mech_Phys", "XXIII": "Hist_Math"
+}
