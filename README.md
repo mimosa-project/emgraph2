@@ -20,6 +20,7 @@ tarski
 xboole_0
 boole
 xboole_1
+
 ```
 ※create_hiecom.pyの21行目「create_graph.create(省略)｣を
 create_mmltop.create_all_graph(dep_only_graphname)に書き換えると  

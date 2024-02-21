@@ -51,6 +51,7 @@ def make_miz_dependency(articleListName, dep_only):
 
     for miz_file in new_mml_lar:
         with open(os.path.join("mml/"+ str(mmlDirectory) +"/", miz_file.lower()), 'rt',
+
                   encoding='utf-8', errors="ignore") as f:
             miz_file_contents = f.read()
         directive2articles = extract_articles(miz_file_contents)

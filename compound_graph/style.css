@@ -66,7 +66,6 @@ button:active{
     top: 60%;
     right: 20px;
 }
-
 .color_labels .number_row{
     width: 20px;
     text-align: center;
@@ -140,4 +139,3 @@ ul {
     /* ポインターイベントを無効化する */
     pointer-events: none;
   }
-  

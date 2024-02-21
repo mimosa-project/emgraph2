@@ -358,6 +358,7 @@ def create_graph(node2targets, output_json_file):
         f.write(json.dumps(graph, indent=4))
 
 
+
 def create_part_graph(directoryName):
     article2ref_articles = retrieve_dependency.make_miz_dependency(articleListName= directoryName+".txt", dep_only=False)
     create_graph(article2ref_articles, f"cluster/compound_dot_graph{directoryName}.json")
