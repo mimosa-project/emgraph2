@@ -4,9 +4,9 @@ import re
 from collections import defaultdict
 
 #描画する(クラスタリングを行った)articleを記入したファイル名
-articleList = "mml-lar-top.txt"
+articleList = ""
 #mmlフォルダを格納したフォルダ名
-mmlDirectory = "2020-06-18"
+mmlDirectory = "miz_files"
 
 DIRECTIVES_2020 = ['vocabularies', 'constructors', 'notations', 'registrations',
               'theorems', 'schemes', 'definitions', 'requirements',
@@ -16,7 +16,8 @@ DIRECTIVES_2003 = ['vocabulary', 'constructors', 'notations', 'clusters',
               'theorems', 'schemes', 'definitions', 'requirements']
 
 
-def make_miz_dependency():
+def make_miz_dependency(articleListName, dep_only):
+    articleList = articleListName
     """
     articleが参照しているarticleを取得する．
     参照しているarticle ＝ 環境部に記載されたarticle（ただし，vocabulariesを除く）
@@ -36,19 +37,21 @@ def make_miz_dependency():
         new_article = re.sub(r'\n', '', article)
         new_article += '.miz'
         new_mml_lar.append(new_article)
-    new_mml_lar.append("tarski_0.miz")
-    new_mml_lar.append("tarski_a.miz")
+    if dep_only:
+        new_mml_lar.append("tarski_0.miz")
+        new_mml_lar.append("tarski_a.miz")
 
     try:
         article2dependency_articles = dict()
-        os.chdir("mml/2020-06-18/")
+        os.chdir("mml/"+str(mmlDirectory)+"/")
         miz_files = glob.glob("*.miz")  # mmlディレクトリの.mizファイルを取り出す
 
     finally:
         os.chdir(cwd)
 
     for miz_file in new_mml_lar:
-        with open(os.path.join("mml/"+ str(mmlDirectory) +"/", miz_file), 'rt',
+        with open(os.path.join("mml/"+ str(mmlDirectory) +"/", miz_file.lower()), 'rt',
+
                   encoding='utf-8', errors="ignore") as f:
             miz_file_contents = f.read()
         directive2articles = extract_articles(miz_file_contents)

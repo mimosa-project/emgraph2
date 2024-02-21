@@ -109,13 +109,16 @@ def create_nodes(node2targets):
 
     # リンクの作成
     for n in nodes:
-        n.href = "http://mizar.org/version/current/html/" + n.name.lower() + '.html'
+        n.href = "https://em1.cs.shinshu-u.ac.jp/emwiki/release/article/" + n.name.lower()
 
     # targetsの作成
     # k: ノードの名前(str)、v: ノードkのターゲットノードのset[str]
     for k, v in node2targets.items():
         for target in v:
-            name2node[k].targets.add(name2node[target])
+            try:
+                name2node[k].targets.add(name2node[target])
+            except:
+                print(target+" is None")
 
     # sourcesの作成
     # k: ノードの名前、v: ノードkのNodeオブジェクト
@@ -355,6 +358,15 @@ def create_graph(node2targets, output_json_file):
         f.write(json.dumps(graph, indent=4))
 
 
+
+def create_part_graph(directoryName):
+    article2ref_articles = retrieve_dependency.make_miz_dependency(articleListName= directoryName+".txt", dep_only=False)
+    create_graph(article2ref_articles, f"cluster/compound_dot_graph{directoryName}.json")
+
+def create_dependency_only_graph(article_list, output_name):
+    article2ref_articles = retrieve_dependency.make_miz_dependency(article_list, dep_only=True)
+    create_graph(article2ref_articles, output_name)
+
 if __name__ == '__main__':
-    article2ref_articles = retrieve_dependency.make_miz_dependency()
-    create_graph(article2ref_articles, "compound_dot_graph.json")
+    article2ref_articles = retrieve_dependency.make_miz_dependency(articleListName= "list539.txt")
+    create_graph(article2ref_articles, "compound_dot_graph538.json")
