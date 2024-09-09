@@ -139,3 +139,27 @@ ul {
     /* ポインターイベントを無効化する */
     pointer-events: none;
   }
+
+nav{
+  text-align: center;
+  }
+  nav ul{
+  margin: 0 ;
+  padding: 0 ;
+  }
+  nav ul li{
+  list-style: none;
+  display: inline-block;
+  /* width: 18%; */
+  min-width: 90px;
+  }
+  nav ul li a{
+  text-decoration: none;
+  color: #333;
+  }
+  nav ul li.current a{
+  color: #F33135;
+  }
+  nav ul li a:hover{
+  color: #E7DA66;
+  }
