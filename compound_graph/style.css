@@ -140,26 +140,73 @@ ul {
     pointer-events: none;
   }
 
-nav{
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  nav ul{
-  margin: 0 ;
-  padding: 0 ;
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
   }
-  nav ul li{
-  list-style: none;
-  display: inline-block;
-  /* width: 18%; */
-  min-width: 90px;
+  
+  nav {
+    background-color: #ebebebc2; /* ダークグレーの背景 */
+    padding: 10px 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 両端に要素を配置 */
   }
-  nav ul li a{
-  text-decoration: none;
-  color: #333;
+  
+  .nav-title {
+    font-size: 1.2rem;
+    color: #000000; /* タイトルの色を白に */
+    text-decoration: none;
   }
-  nav ul li.current a{
-  color: #F33135;
+  
+  nav ul {
+    list-style: none; /* デフォルトのリストスタイルを削除 */
+    padding: 0;
+    margin: 0;
+    display: flex; /* 横並びにする */
   }
-  nav ul li a:hover{
-  color: #E7DA66;
+  
+  nav ul li {
+    margin: 0 15px;
   }
+  
+  nav ul li a {
+    color: #000000; /* テキストの色を白に */
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    background-color: #ebebebc2; /* ホバー時に少し明るい色に */
+    border-radius: 5px; /* 少し角を丸くする */
+  }
+  
+  /* モバイル対応 */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+    }
+  
+    nav ul {
+      flex-direction: column; /* 縦並びに変更 */
+      align-items: center;
+    }
+  
+    nav ul li {
+      margin: 10px 0;
+    }
+  
+    .nav-title {
+      margin-bottom: 15px; /* タイトルの下にスペースを追加 */
+    }
+  }
+  
