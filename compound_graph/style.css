@@ -150,6 +150,10 @@ ul {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
   }
+
+  #side {
+    margin-top: 50px; /* 各要素の下に余白を追加 */
+  }
   
   nav {
     background-color: #ebebebc2; /* ダークグレーの背景 */
