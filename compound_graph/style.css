@@ -138,24 +138,24 @@ ul {
 .gray details {
     /* ポインターイベントを無効化する */
     pointer-events: none;
-  }
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-  }
+}
 
-  #side, #parent_list, #name-plate, #graph {
+#side, #parent_list, #name-plate, #graph {
     margin-top: 50px;
-  }
-  
-  nav {
+}
+
+nav {
     background-color: #ebebebc2; /* ダークグレーの背景 */
     padding: 10px 20px;
     width: 100%;
@@ -163,91 +163,93 @@ ul {
     align-items: center;
     justify-content: space-between; /* 両端に要素を配置 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.329); /* 下に影を追加 */
-  }
-  
-  .nav-title {
+}
+
+.nav-title {
     font-size: 1.2rem;
     color: #535151;
     text-decoration: none;
-  }
-  
-  nav ul {
+}
+
+nav ul {
     list-style: none; /* デフォルトのリストスタイルを削除 */
     padding: 0;
     margin: 0;
     display: flex; /* 横並びにする */
-  }
-  
-  #side, #graph {
+}
+
+#side, #graph {
     margin-left: 30px;
-  }
-  
-  nav ul li a {
+}
+
+/* ボタンのスタイル */
+nav ul li button {
     font-size: 14px;
-    font-weight:bold;
+    font-weight: bold;
     color: #666565;
-    text-decoration: none;
+    background-color: transparent; /* 背景を透明に */
+    border: none; /* ボーダーを消す */
     padding: 10px 20px;
-    display: inline-block;
+    cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  nav ul li a:hover {
+}
+
+nav ul li button:hover {
     background-color: #d4d4d4; /* ホバー時に少し明るい色に */
     border-radius: 5px; /* 少し角を丸くする */
-  }
+}
 
-    /* ドロップダウンの基本スタイル */
-  .dropdown {
-      position: relative; /* 相対位置 */
-      display: inline-block; /* インラインブロックにする */
-  }
-  
-  .dropbtn {
-      background-color: transparent; /* 背景を透明に */
-      color: #000; /* テキスト色 */
-      padding: 10px 15px; /* パディング */
-      text-decoration: none; /* 下線を消す */
-      font-size: 1rem; /* フォントサイズ */
-  }
-  
-  /* ドロップダウンメニュー */
-  .dropdown-content {
-      display: none; /* 初期状態で非表示 */
-      position: absolute; /* 絶対位置 */
-      background-color: #f9f9f9; /* 背景色 */
-      min-width: 160px; /* 最小幅 */
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* 影を付ける */
-      z-index: 1; /* 前面に表示 */
-  }
-  
-  /* ドロップダウンメニューのリンク */
-  .dropdown-content a {
-      color: black; /* テキスト色 */
-      padding: 12px 16px; /* パディング */
-      text-decoration: none; /* 下線を消す */
-      display: block; /* ブロック表示 */
-  }
-  
-  /* ホバー時のスタイル */
-  .dropdown-content a:hover {
-      background-color: #f1f1f1; /* ホバー時の背景色 */
-  }
-  
-  /* ドロップダウンメニューを表示 */
-  .dropdown:hover .dropdown-content {
-      display: block; /* ホバー時に表示 */
-  }
-  
-  /* モバイル対応 */
+/* ドロップダウンの基本スタイル */
+.dropdown {
+    position: relative; /* 相対位置 */
+    display: inline-block; /* インラインブロックにする */
+}
+
+.dropbtn {
+    background-color: transparent; /* 背景を透明に */
+    color: #000; /* テキスト色 */
+    padding: 10px 15px; /* パディング */
+    text-decoration: none; /* 下線を消す */
+    font-size: 1rem; /* フォントサイズ */
+}
+
+/* ドロップダウンメニュー */
+.dropdown-content {
+    display: none; /* 初期状態で非表示 */
+    position: absolute; /* 絶対位置 */
+    background-color: #f9f9f9; /* 背景色 */
+    min-width: 160px; /* 最小幅 */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* 影を付ける */
+    z-index: 1; /* 前面に表示 */
+}
+
+/* ドロップダウンメニューのリンク */
+.dropdown-content a {
+    color: black; /* テキスト色 */
+    padding: 12px 16px; /* パディング */
+    text-decoration: none; /* 下線を消す */
+    display: block; /* ブロック表示 */
+}
+
+/* ホバー時のスタイル */
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* ホバー時の背景色 */
+}
+
+/* ドロップダウンメニューを表示 */
+.dropdown:hover .dropdown-content {
+    display: block; /* ホバー時に表示 */
+}
+
+/* モバイル対応 */
 @media (max-width: 768px) {
     nav {
         flex-direction: column; /* ナビゲーションバーを縦並びに */
     }
 
-    nav a {
+    nav button {
         font-size: 14px; /* フォントサイズを小さく設定 */
-        margin: 10px 0; /* リンク間のマージン */
+        margin: 10px 0; /* ボタン間のマージン */
     }
 
     .nav-title {
@@ -255,4 +257,3 @@ ul {
         margin-bottom: 15px; /* タイトルの下にスペースを追加 */
     }
 }
-
