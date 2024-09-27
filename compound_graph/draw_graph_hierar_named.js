@@ -1093,3 +1093,21 @@ function romanToArabic(roman) {
     // 結果を返す
     return result;
 }
+
+// クリックイベントリスナーの設定
+document.addEventListener("click", function(event){
+    let target = event.target;
+
+    // クリックされた要素がナビゲーションバー内のリンクかどうかを確認
+    if(target.closest("ul") && target.closest("ul").classList.contains("navbar")){
+        // ナビゲーションバー内のリンクならば、他の処理をさせない
+        event.stopPropagation();
+        return;
+    }
+
+    // ノードの検索処理
+    if(target.classList.contains("node")) {
+        let nodeName = target.textContent; // クリックされたノード名を取得
+        searchNode(nodeName, nodes, id2relatedElements);
+    }
+});
