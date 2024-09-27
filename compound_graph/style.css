@@ -150,6 +150,10 @@ ul {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
   }
+
+  #side, #parent_list, #name-plate, #graph {
+    margin-top: 50px;
+  }
   
   nav {
     background-color: #ebebebc2; /* ダークグレーの背景 */
@@ -174,9 +178,9 @@ ul {
     display: flex; /* 横並びにする */
   }
   
-  /* nav ul li {
-    margin: 0 15px;
-  } */
+  #side {
+    margin-left: 30px;
+  }
   
   nav ul li a {
     font-size: 14px;
@@ -186,11 +190,6 @@ ul {
     padding: 10px 20px;
     display: inline-block;
     transition: background-color 0.3s ease;
-  }
-
-  #side, #parent_list, #name-plate, #graph {
-    margin-top: 50px;
-    margin-left: 30px;
   }
   
   nav ul li a:hover {
