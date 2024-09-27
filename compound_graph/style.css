@@ -150,11 +150,6 @@ ul {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
   }
-
-  #side, #parent_list, #name-plate, #graph {
-    margin-top: 50px;
-    margin-left: 30px;
-  }
   
   nav {
     background-color: #ebebebc2; /* ダークグレーの背景 */
@@ -191,6 +186,11 @@ ul {
     padding: 10px 20px;
     display: inline-block;
     transition: background-color 0.3s ease;
+  }
+
+  #side, #parent_list, #name-plate, #graph {
+    margin-top: 50px;
+    margin-left: 30px;
   }
   
   nav ul li a:hover {
