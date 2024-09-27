@@ -153,6 +153,7 @@ ul {
 
   #side, #parent_list, #name-plate, #graph {
     margin-top: 50px;
+    margin-left: 30px;
   }
   
   nav {
@@ -178,9 +179,9 @@ ul {
     display: flex; /* 横並びにする */
   }
   
-  nav ul li {
-    /* margin: 0 15px; */
-  }
+  /* nav ul li {
+    margin: 0 15px;
+  } */
   
   nav ul li a {
     font-size: 14px;
