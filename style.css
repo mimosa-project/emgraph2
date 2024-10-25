@@ -1,0 +1,217 @@
+#graph{
+    position: absolute;
+    left: 300px;
+    top: 100px;
+    bottom: 0;
+    right: 0;
+}
+
+#side{
+    position: fixed;
+    left: 0px;
+    top: 100px;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: auto;
+    overflow: auto;
+    resize: horizontal;
+}
+
+li:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+summary:hover{
+    font-weight: bold;
+}
+
+#contextmenu {
+    display: none;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 250px;
+    height: auto;
+    
+    #contextmenu li {
+        cursor: pointer;
+    }
+}
+
+#cluster_coloring_index {
+    display: none;
+}
+    
+button:active{
+    color: white;
+    background-color: black;
+}
+
+#color_index{
+    position: absolute;
+    z-index: 10;
+}
+
+.color_index{
+    position: absolute;
+    z-index: 10;
+    top: 20%;
+    right: 20px;
+}
+
+.cluster_color_index{
+    position: absolute;
+    z-index: 10;
+    top: 60%;
+    right: 20px;
+}
+.color_labels .number_row{
+    width: 20px;
+    text-align: center;
+}
+
+.color_labels .color_row{
+    width: 40px;
+}
+
+.color_labels .generation_param_row{
+    width: 140px;
+    font-size: 100%;
+}
+
+.color_labels .node_size_param_row{
+    width: 80px;
+}
+
+.palette {
+    position: absolute;
+    display: none;
+    border: 1px solid black;
+    padding: 5px;
+    background-color: white;
+    width: 110px; /* 横幅を指定 */
+}
+
+.color {
+    width: 20px;
+    height: 20px;
+    margin: 2px;
+    float: left; /* 左寄せにする */
+}
+
+#name-plate{
+    position: absolute;
+    z-index: 30;
+    font-size: 25px;
+    background-color: #ffe4c4;
+}
+
+.hidden_ {
+    visibility: hidden;
+}
+
+#help_page2 {
+    display: none;
+}
+
+
+#help_page3 {
+    display: none;
+}
+
+.indent1 {
+    text-indent: 1rem;
+}
+.indent2 {
+    text-indent: 2rem;
+}
+ul {
+    list-style: none;
+  }
+
+.btnGen1{
+    color: #a10000;
+}
+
+/* グレーにした要素のsummaryに対するスタイル */
+.gray details {
+    /* ポインターイベントを無効化する */
+    pointer-events: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+#side, #parent_list, #name-plate, #graph {
+    margin-top: 50px;
+}
+
+nav {
+    background-color: #ebebebc2; /* ダークグレーの背景 */
+    padding: 10px 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 両端に要素を配置 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.329); /* 下に影を追加 */
+}
+
+.nav-title {
+    font-size: 1.2rem;
+    color: #535151;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none; /* デフォルトのリストスタイルを削除 */
+    padding: 0;
+    margin: 0;
+    display: flex; /* 横並びにする */
+}
+
+#side, #graph {
+    margin-left: 30px;
+}
+
+/* ボタンのスタイル */
+nav ul li button {
+    font-size: 14px;
+    font-weight: bold;
+    color: #666565;
+    background-color: transparent; /* 背景を透明に */
+    border: none; /* ボーダーを消す */
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li button:hover {
+    background-color: #d4d4d4; /* ホバー時に少し明るい色に */
+    border-radius: 5px; /* 少し角を丸くする */
+}
+
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* ナビゲーションバーを縦並びに */
+    }
+
+    nav button {
+        font-size: 14px; /* フォントサイズを小さく設定 */
+        margin: 10px 0; /* ボタン間のマージン */
+    }
+
+    .nav-title {
+        font-size: 18px; /* タイトルのフォントサイズを設定 */
+        margin-bottom: 15px; /* タイトルの下にスペースを追加 */
+    }
+}
