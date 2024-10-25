@@ -5,7 +5,7 @@ createGraph.pyで出力されたファイルとcytoscape.jsを使って
 console.log('Before Cytoscape initialization');
 
 $(function(){
-    $.when($.getJSON('./graph_attrs/output/graph_compound_hierarchical.json'), $.getJSON('./graph_attrs/iwanami_div_trans.json'), $.getJSON('./graph_attrs/iwanami_trans.json')).then((dot_graph, divitions, items) => {
+    $.when($.getJSON('compound_graph/graph_attrs/output/graph_compound_hierarchical.json'), $.getJSON('compound_graph/graph_attrs/iwanami_div_trans.json'), $.getJSON('compound_graph/graph_attrs/iwanami_trans.json')).then((dot_graph, divitions, items) => {
         $(".has-sub").children(".sub").stop().slideToggle();
         // cytoscapeグラフの作成(初期化)
         let cy = window.cy = cytoscape({
