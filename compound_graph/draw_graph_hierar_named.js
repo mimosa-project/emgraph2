@@ -2,8 +2,6 @@
 createGraph.pyで出力されたファイルとcytoscape.jsを使って
 グラフの描画を行う
 */
-console.log('Before Cytoscape initialization');
-
 $(function(){
     $.when($.getJSON('compound_graph/graph_attrs/output/graph_compound_hierarchical.json'), $.getJSON('compound_graph/graph_attrs/iwanami_div_trans.json'), $.getJSON('compound_graph/graph_attrs/iwanami_trans.json')).then((dot_graph, divitions, items) => {
         $(".has-sub").children(".sub").stop().slideToggle();
@@ -18,8 +16,6 @@ $(function(){
             autounselectify: true,
             zoom: 0.025,    
         });
-
-        console.log('Cytoscape initialized:', cy);
         
         let contextMenu = cy.contextMenus({ //右クリック時のコンテキストメニュー
             evtType: ['cxttap'],
