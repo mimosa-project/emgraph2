@@ -6,36 +6,31 @@ on:
       - main
   workflow_dispatch:
 
-# 明示的な権限設定を追加
+# 基本的な権限のみ設定
 permissions:
   contents: read
   pages: write
   id-token: write
-  actions: write    # workflow_dispatchのための権限
-  deployments: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true  # 進行中のワークフローをキャンセル可能に変更
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
+      - uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
-      
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
