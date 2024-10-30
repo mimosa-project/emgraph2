@@ -3,7 +3,7 @@ createGraph.pyで出力されたファイルとcytoscape.jsを使って
 グラフの描画を行う
 */
 $(function(){
-    $.when($.getJSON('../../compound_graph/graph_attrs/output/graph_compound_hierarchical.json'), $.getJSON('../../compound_graph/graph_attrs/iwanami_div_trans.json'), $.getJSON('../../compound_graph/graph_attrs/iwanami_trans.json')).then((dot_graph, divitions, items) => {
+    $.when($.getJSON('emgraph2/compound_graph/graph_attrs/output/graph_compound_hierarchical.json'), $.getJSON('emgraph2/compound_graph/graph_attrs/iwanami_div_trans.json'), $.getJSON('emgraph2/compound_graph/graph_attrs/iwanami_trans.json')).then((dot_graph, divitions, items) => {
         $(".has-sub").children(".sub").stop().slideToggle();
         // cytoscapeグラフの作成(初期化)
         let cy = window.cy = cytoscape({
