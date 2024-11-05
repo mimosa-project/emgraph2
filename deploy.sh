@@ -11,3 +11,6 @@ mkdir -p "$TARGET_DIR"
 
 # compound_graph 内のファイルを docs にコピー
 cp -R "$SOURCE_DIR"/* "$TARGET_DIR"
+
+# Jekyll ビルドを無効にするために .nojekyll ファイルを追加
+touch "$TARGET_DIR/.nojekyll"
