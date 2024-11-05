@@ -1,0 +1,26 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # ここで監視するブランチを指定。通常は "main" や "master"。
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # リポジトリをチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # シェルスクリプトを実行
+      - name: Run deploy script
+        run: ./deploy.sh
+
+      # GitHub Pages にプッシュ
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs  # デプロイするディレクトリを指定
