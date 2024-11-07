@@ -1,27 +1,37 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # キャッシュのクリア
-      - name: Clear Jekyll Cache
-        run: rm -rf $(bundle show jekyll)/_cache
-
-      # リポジトリをチェックアウト
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 完全な履歴をフェッチ
 
-      # 実行権限を付与
+      # デプロイスクリプトに実行権限を付与
       - name: Grant execute permission for deploy script
         run: chmod +x deploy.sh
 
-      # シェルスクリプトを実行
+      # デプロイスクリプトを実行
       - name: Run deploy script
-        run: ./deploy.sh
+        run: |
+          ./deploy.sh
+          # スクリプト実行後のdocsディレクトリの内容を確認
+          echo "Contents of docs directory:"
+          ls -la docs/
 
-      # GitHub Pages にプッシュ
+      # GitHub Pagesにデプロイ
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs  # デプロイするディレクトリを指定
+          publish_dir: ./docs
+          force_orphan: true  # クリーンな状態を維持
+          commit_message: "Deploy: ${{ github.event.head_commit.message }}"
