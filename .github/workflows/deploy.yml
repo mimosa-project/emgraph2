@@ -1,15 +1,12 @@
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches:
-      - main  # ここで監視するブランチを指定。通常は "main" や "master"。
-
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      # キャッシュのクリア
+      - name: Clear Jekyll Cache
+        run: rm -rf $(bundle show jekyll)/_cache
+
       # リポジトリをチェックアウト
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -17,7 +14,7 @@ jobs:
       # 実行権限を付与
       - name: Grant execute permission for deploy script
         run: chmod +x deploy.sh
-        
+
       # シェルスクリプトを実行
       - name: Run deploy script
         run: ./deploy.sh
