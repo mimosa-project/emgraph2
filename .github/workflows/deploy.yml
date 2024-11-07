@@ -33,5 +33,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
+          enable_jekyll: false  # Jekyll処理を明示的に無効化
           force_orphan: true  # クリーンな状態を維持
           commit_message: "Deploy: ${{ github.event.head_commit.message }}"
