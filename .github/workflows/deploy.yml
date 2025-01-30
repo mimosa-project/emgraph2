@@ -1,0 +1,35 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 完全な履歴をフェッチ
+
+      # デプロイスクリプトに実行権限を付与
+      - name: Grant execute permission for deploy script
+        run: chmod +x deploy.sh
+
+      # デプロイスクリプトを実行
+      - name: Run deploy script
+        run: |
+          ./deploy.sh
+
+      # GitHub Pagesにデプロイ
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          enable_jekyll: false  # Jekyll処理を明示的に無効化
+          force_orphan: true  # クリーンな状態を維持
+          commit_message: "Deploy: ${{ github.event.head_commit.message }}"
