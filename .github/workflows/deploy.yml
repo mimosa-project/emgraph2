@@ -23,9 +23,6 @@ jobs:
       - name: Run deploy script
         run: |
           ./deploy.sh
-          # スクリプト実行後のdocsディレクトリの内容を確認
-          echo "Contents of docs directory:"
-          ls -la docs/
 
       # GitHub Pagesにデプロイ
       - name: Deploy to GitHub Pages
