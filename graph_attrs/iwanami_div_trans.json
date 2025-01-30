@@ -1,0 +1,7 @@
+{
+    "I": "MathLogicAndFoundation_", "II": "SetsAndTopology_", "III": "Algebra_", "IV": "NumberTheory_", "V": "GroupAndRepresentation_",
+    "VI": "AlgebraicGeometry_", "VII": "Geometry_", "VIII": "DifferentialGeometry_", "IX": "Topology_", "X": "Analysis_",
+    "XI": "ComplexAnalysis_", "XII": "FunctionalAnalysis_", "XIII": "DifferentialEquations_", "XIV": "SpecialFunctions_", "XV": "NumericalAnalysis_",
+    "XVI": "AppliedAnalysis_", "XVII": "ProbabilityTheory_", "XVIII": "MathStatistics_", "XIX": "DiscreteMathAndCombinatorics_", 
+    "XX": "MathInfomationSciences_", "XXI": "OptimizationTheory_", "XXII": "MechanicsAndPhysics_", "XXIII": "MathHistory_"
+}
